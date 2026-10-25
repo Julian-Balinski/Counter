@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Counter.AddCounter"
+             Title="Counter Creator">
+    <VerticalStackLayout Spacing="20">
+        <VerticalStackLayout.GestureRecognizers>
+            <PointerGestureRecognizer PointerPressed="OnPointerDown"/>
+            <PointerGestureRecognizer PointerReleased="OnPointerUp"/>
+        </VerticalStackLayout.GestureRecognizers>
+        <HorizontalStackLayout HorizontalOptions="Center"
+                               Spacing="15">
+            <Label VerticalTextAlignment="Center"
+                   FontSize="20">Nazwa:</Label>
+            <Entry x:Name="CounterName"
+                   TextChanged="UpdateName"
+                   WidthRequest="250"
+                   ReturnType="Next"
+                   MaxLength="32"
+                   Placeholder="Counter"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center"
+                               Spacing="15">
+            <Label VerticalTextAlignment="Center"
+                   FontSize="20">Wartość Bazowa:</Label>
+            <Entry x:Name="CounterDefaultValue"
+                   TextChanged="UpdateDefaultValue"
+                   WidthRequest="250"
+                   ReturnType="Done"
+                   MaxLength="16"
+                   Placeholder="0"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center"
+                               Spacing="15">
+            <Label VerticalTextAlignment="Center"
+                   FontSize="20">Kolor:</Label>
+            <VerticalStackLayout>
+                <AbsoluteLayout x:Name="ColorPicker"
+                                SizeChanged="FullyLoaded">
+                    <AbsoluteLayout.GestureRecognizers>
+                        <PointerGestureRecognizer PointerMoved="OnPointerMove"/>
+                    </AbsoluteLayout.GestureRecognizers>
+                    <Path x:Name="ColorPickerHue"
+                    BackgroundColor="Transparent"
+                    Aspect="Uniform"
+                    Fill="red"
+                    Data="M 0 0 L 32 32 L 0 0 L 0.1 0.1 h 31.8 v 31.8 h -31.8 v -31.8 L 0 0"
+                    HeightRequest="200"
+                    WidthRequest="200"/>
+                    <Path
+                    BackgroundColor="Transparent"
+                    Aspect="Uniform"
+                    Data="M 0 0 L 32 32 L 0 0 L 0 0 h 32 v 32 h -32 v -32 L 0 0"
+                    HeightRequest="200"
+                    WidthRequest="200">
+                        <Path.Fill>
+                            <LinearGradientBrush StartPoint="0,0"
+                                                 EndPoint="1,0">
+                                <GradientStop Color="White"
+                                              Offset="0.0"/>
+                                <GradientStop Color="Transparent"
+                                              Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                    <Path
+                    BackgroundColor="Transparent"
+                    Aspect="Uniform"
+                    Data="M 0 0 L 32 32 L 0 0 L 0 0 h 32 v 32 h -32 v -32 L 0 0"
+                    HeightRequest="200"
+                    WidthRequest="200">
+                        <Path.Fill>
+                            <LinearGradientBrush StartPoint="0,1"
+                                                 EndPoint="0,0">
+                                <GradientStop Color="black"
+                                              Offset="0.0"/>
+                                <GradientStop Color="Transparent"
+                                              Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                </AbsoluteLayout>
+                <Slider x:Name="ColorSlider"
+                        WidthRequest="200"
+                        Maximum="1"
+                        Minimum="0"
+                        MaximumTrackColor="red"
+                        MinimumTrackColor="Transparent"
+                        ValueChanged="OnHueChange">
+                    <Slider.Background>
+                        <LinearGradientBrush StartPoint="0,0"
+                                                 EndPoint="1,0">
+                            <GradientStop Color="#f00"
+                                              Offset="0.0"/>
+                            <GradientStop Color="#ff0"
+                                              Offset="0.166"/>
+                            <GradientStop Color="#0f0"
+                                              Offset="0.333"/>
+                            <GradientStop Color="#0ff"
+                                              Offset="0.5"/>
+                            <GradientStop Color="#00f"
+                                              Offset="0.666"/>
+                            <GradientStop Color="#f0f"
+                                              Offset="0.833"/>
+                            <GradientStop Color="#f00"
+                                              Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Slider.Background>
+                </Slider>
+            </VerticalStackLayout>
+            <BoxView x:Name="ColorDisplay"
+                     BackgroundColor="Red"
+                     WidthRequest="50"
+                     Margin="0,2,0,32"/>
+            <VerticalStackLayout
+                Spacing="33">
+                <HorizontalStackLayout
+                    Spacing="15">
+                    <Entry x:Name="HueValue"
+                           Text="0"
+                           WidthRequest="75"
+                           TextChanged="HueChanged"/>
+                    <Label VerticalOptions="Center">Hue</Label>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout
+                    Spacing="15">
+                    <Entry x:Name="SatValue"
+                           Text="100"
+                           WidthRequest="75"
+                           TextChanged="SaturationChanged"/>
+                    <Label VerticalOptions="Center">Saturation</Label>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout
+                    Spacing="15">
+                    <Entry x:Name="ValValue"
+                           Text="100"
+                           WidthRequest="75"
+                           TextChanged="ValueChanged"/>
+                    <Label VerticalOptions="Center">Value</Label>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center"
+                               Spacing="25">
+            <Button Text="Dodaj"
+                    Clicked="FinilizeAddCounter"/>
+            <Button Text="Resetuj"
+                    Clicked="ResetCounterForm"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

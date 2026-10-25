@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCounterSaveData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CounterSaveData>
+    <count>10</count>
+    <defaultValue>0</defaultValue>
+    <name>Counter</name>
+    <color>#3A3F78</color>
+    <pos>
+      <Left>119</Left>
+      <Top>139</Top>
+      <Right>119</Right>
+      <Bottom>139</Bottom>
+    </pos>
+  </CounterSaveData>
+</ArrayOfCounterSaveData>
