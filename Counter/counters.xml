@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCounterSaveData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CounterSaveData>
+    <count>0</count>
+    <defaultValue>0</defaultValue>
+    <name>Counter</name>
+    <color>#DBADED</color>
+    <pos>
+      <Left>80</Left>
+      <Top>23</Top>
+      <Right>80</Right>
+      <Bottom>23</Bottom>
+    </pos>
+  </CounterSaveData>
+  <CounterSaveData>
+    <count>0</count>
+    <defaultValue>0</defaultValue>
+    <name>Counter</name>
+    <color>#A4FA42</color>
+    <pos>
+      <Left>330</Left>
+      <Top>23</Top>
+      <Right>330</Right>
+      <Bottom>23</Bottom>
+    </pos>
+  </CounterSaveData>
+</ArrayOfCounterSaveData>
