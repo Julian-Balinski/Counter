@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Counter.Views.Counter">
+    <Border BackgroundColor="Black"
+            Padding="0, 0, 0, 15">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="30,30,15,15" />
+        </Border.StrokeShape>
+        <VerticalStackLayout
+            Spacing="25"
+            VerticalOptions="Center"
+            MaximumWidthRequest="250">
+            <AbsoluteLayout
+                x:Name="CounterTab"
+                WidthRequest="250"
+                BackgroundColor="#222">
+                <AbsoluteLayout.GestureRecognizers>
+                    <PointerGestureRecognizer PointerPressed="OnPointerDown" />
+                </AbsoluteLayout.GestureRecognizers>
+                <Label x:Name="CounterName"
+                       TextColor="#DDD"
+                       Margin="15,0"
+                       FontSize="25"/>
+                <Border Margin="205,5,0,0"
+                        BackgroundColor="#222">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5,5,5,5" />
+                    </Border.StrokeShape>
+                    <Path x:Name="DeleteButton"
+                          Aspect="Uniform"
+                          Stroke="white"
+                          Data="M 1,1 L 1.5,4 3,4 3.5,1 M 1.65,1.25 L 2,3.75 M 2.25,1.25 L 2.25,3.75 M 2.85,1.25 L 2.5,3.75 M 0.75,0.80 L 3.75,0.80 M 2,0.7 L 2.5,0.7 M 0,0 L 0,0 M 4.5,4.5 L 4.5,4.5"
+                          HeightRequest="25"
+                          WidthRequest="25">
+                        <Path.GestureRecognizers>
+                            <PointerGestureRecognizer PointerPressed="RemoveCounter"/>
+                        </Path.GestureRecognizers>
+                    </Path>
+                </Border>
+            </AbsoluteLayout>
+
+            <Label x:Name="CounterDisplay"
+                Text="0"
+                TextColor="#DDD"
+                FontSize="25"
+                HorizontalTextAlignment="Center"/>
+
+            <HorizontalStackLayout
+                Padding="0,0"
+                Spacing="25"
+                HorizontalOptions="Center">
+                <Button
+                x:Name="IncrementButton"
+                Text="+" 
+                SemanticProperties.Hint="Increments the counters value"
+                Clicked="OnIncrementClicked"
+                HorizontalOptions="Fill" />
+
+                <Button
+                x:Name="ResetButton"
+                Text="↺"
+                SemanticProperties.Hint="Reset the counter to it's default value"
+                Clicked="OnResetClicked"
+                HorizontalOptions="Fill" />
+
+                <Button
+                x:Name="DecrementButton"
+                Text="-"
+                SemanticProperties.Hint="Decrements the counters value"
+                Clicked="OnDecrementClicked"
+                HorizontalOptions="Fill" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Border>
+</ContentView>
